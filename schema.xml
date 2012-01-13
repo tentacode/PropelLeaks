@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="propelleaks" defaultIdMethod="native">
+  <table name="person" phpName="Person">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="name" type="varchar" size="255" required="true" />
+    <column name="email" type="varchar" size="255" required="true" />
+  </table>
+  <table name="adress" phpName="Adress">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="person_id" type="integer" required="true"/>
+    <column name="city" type="varchar" size="128" required="true"/>
+    <column name="post_code" type="varchar" size="128" required="true"/>
+    <foreign-key foreignTable="person">
+      <reference local="person_id" foreign="id"/>
+    </foreign-key>
+  </table>
+</database>
